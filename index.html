@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <div id = "formulario"></div>
+    
+     <script>
+        new Vue({
+        el: '#formulario',
+        template:`
+        
+        <form  @submit.prevent="addDados">
+            <section id = "cont">
+                <div id = "box1">
+                <table class = "for">
+                <tr class = "linha">
+                    <td class = "celula"> <label>Nome: </label><input type="" placeholder=" Nome" v-model = "nome"/></td>
+
+                    <td class = "celula"> <label>Email: </label><input type="email" placeholder="E-mail" v-model = "email""/></td>
+                </tr>
+                    <tr class = "linha">
+                <td class = "celula">    <label>Chek-in: </label><input type="date" v-model="dChegada"/> </td>
+      
+                   <td class = "celula"> <label>N° de noites: </label><input type="number" placeholder="Número de noites" v-model = "nNoites"/></td>
+                    
+                    </tr>
+      <tr class = "linha">
+                    <td class = "celula"> <label>N° de Hóspedes: </label><input type="number" placeholder="Número de hóspedes" v-model="nHospedes"/></td>
+        
+                    <td class = "celula"><label>Total estimado: </label><input type="number" placeholder="Total estimado" v-model="tEstimado"/></td>
+         </tr>
+
+           <tr class = "linha">
+                 <td class = "celula aval" colspan="2">   <label>Avaliação: </label><textarea placeholder="Digite sua Avaliação" v-model="comentario" ></textarea></td>
+
+                    </tr>
+
+<tr class = "linha"> <td class = "celula but" colspan="2"><button type = "submit">Enviar</button><td></tr>
+</table>
+</div>
+  </div>
+<div id = "box2">
+           <div id="tabela" >
+    <table class="rea">
+         <tr>
+            <td class = "tab">Nome</td> <td class = "tab">Email</td> <td class = "tab">Data de chegada</td> <td class = "tab">Número de noites</td> <td class = "tab">Número de Hóspedes</td><td class = "tab">Total estimado</td><td class = "tab">Comentário</td>
+         </tr>
+          <tr v-for="comment in comments">
+              <td class = "tab">{{comment.nome}}</td> <td class = "tab">{{comment.email}}</td>  <td class = "tab">{{comment.dChegada}}</td>  <td class = "tab">{{comment.nNoites}}</td>  <td class = "tab">{{comment.nHospedes}}</td>  <td class = "tab">{{comment.tEstimado}}</td>  <td class = "tab">{{comment.comentario}}</td> 
+     </tr>
+              </table>
+     </section>
+ </form>
+</div>`,
+
+ data() {
+     return {
+        comments:[],
+         nome:'',
+         email:'',
+         dChegada:'',
+         nNoites:'',
+         nHospedes:'',
+         tEstimado:'',
+         comentario:''
+     }
+    
+ },
+ methods: {
+          addDados() {
+             this.comments.push({
+        nome:this.nome,
+         email:this.email,
+         dChegada:this.dChegada,
+         nNoites:this.nNoites,
+         nHospedes:this.nHospedes,
+         tEstimado:this.tEstimado,
+         comentario:this.comentario
+
+             })
+        
+         }
+     }
+        })
+
+     </script>
+</body>
+</html>

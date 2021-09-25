@@ -1,0 +1,50 @@
+ #tabela ,.tab{
+border:solid 1px black;
+max-height: 100%;
+padding: 0;
+width: 60vw;
+}
+#cont{
+    display: grid;
+    justify-content: center;
+  
+}
+#box1{
+
+
+
+}
+#box2{
+    
+}
+.celula{
+    text-align: left;
+    border:1px solid black;
+    padding: 0;
+    width: 50%;
+    margin: 0;
+    
+}
+button{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 20vw;
+}
+.but{
+    text-align: center;
+    
+}
+
+.aval{
+    text-align: center;
+    
+}
+.for{
+    padding:0;
+}
+.linha{
+   padding :0px;
+}
+#tabela{
+    width: 70vw;
+}
